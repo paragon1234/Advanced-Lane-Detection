@@ -133,5 +133,7 @@ To make the lines on video more robust, I have used values across the frames viz
 
 #### 1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
 
-This was a very tedious project involving tuning of several parameters. My approach also invalidates fits if the left and right base points aren't a certain distance apart (within some threshold) under the assumption that the lane width will remain relatively constant.
+This was a very tedious project involving tuning of several parameters. Even thou the lane detected is not perfect, but fitting a second order polynomial gives a quite good result and removes inconsistencies in detected lines. I am wondering whether a second order polynomial can work on zig-zag road like 'S' shape. The technique shown works very well to the situation it was designed for. For example, it picks the yellow and white lanes quite well. My approach also invalidates fits if the left and right base points aren't a certain distance apart (within some threshold) under the assumption that the lane width will remain relatively constant.
+There could be improvements to be done to handle cases like shadows, reflections, night, rain, snow, etc.
+
 I couldn’t get the approach to work on the harder-challenge video, mainly because the lanes had large curvature, and as a result the lanes went outside the region of interest we chose for perspective transform. 

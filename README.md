@@ -26,7 +26,7 @@ The goals / steps of this project are the following:
 [image9]: ./outImg3/5_2warp.jpg "Warp Example"
 [image10]: ./outImg3/5_3mask.jpg "Road Estimate"
 [image11]: ./outImg3/5_4road.jpg "Fit Visual"
-[image7]: ./outImg3/5_5Lane.jpg "Output"
+[image12]: ./outImg3/5_5Lane.jpg "Output"
 [video1]: ./project_video_output.mp4 "Video"
 
 ## Camera Calibration
@@ -53,6 +53,7 @@ To demonstrate this step, I will describe how I apply the distortion correction 
 
 ![alt text][image3]
 
+
 #### 2. Perspective transform, Color transforms, gradients to create a thresholded binary image
 
 I used a combination of color and gradient thresholds to generate a binary image. I used a 2 way approach, where I first applied perspective transform and then masking (perspective transform at lines 236 through 240, thresholding steps at lines 242 through 245 in AdvancedLaneDetection.py). For perspective transform, I chose to hardcode the source and destination points in the following manner:
@@ -62,12 +63,16 @@ I verified that my perspective transform was working as expected by drawing the 
 
 Here's an example of my output for this step.  
 
-![alt text][image4]           ![alt text][image5]
+![alt text][image4]          
+
+![alt text][image5]
 
 
 Next, I performed these two operations in reverse order: I first applied masking and then perspective transform on the test image (thresholding steps at lines 249 through 252, perspective transform at lines 254,  in AdvancedLaneDetection.py).  Here's an example of my output for this step.  
 
-![alt text][image6]           ![alt text][image7]
+![alt text][image6]           
+
+![alt text][image7]
 
 
 Finally, I combined the 2 images. As the image obtained in second step contains noise, I reduced its magnitude by quarter (line 255).

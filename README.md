@@ -50,6 +50,7 @@ and obtained this result:
 #### 1. An example of a distortion-corrected image.
 
 To demonstrate this step, I will describe how I apply the distortion correction to one of the test images like this one:
+
 ![alt text][image3]
 
 #### 2. Perspective transform, Color transforms, gradients to create a thresholded binary image
@@ -97,7 +98,7 @@ I implemented this step in lines # through # in my code in `yet_another_file.py`
 #### Final video output.  
 The pipeline performed reasonably well on the entire project video (wobbly lines are ok but no catastrophic failures that would cause the car to drive off the road!).
 
-Here's a [link to my video result](./project_video.mp4)
+Here's a [link to my video result](./project_video_output.mp4)
 
 ---
 

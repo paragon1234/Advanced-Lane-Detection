@@ -133,4 +133,5 @@ To make the lines on video more robust, I have used values across the frames viz
 
 #### 1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
 
-Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
+This was a very tedious project involving tuning of several parameters. My approach also invalidates fits if the left and right base points aren't a certain distance apart (within some threshold) under the assumption that the lane width will remain relatively constant.
+I couldn’t get the approach to work on the harder-challenge video, mainly because the lanes had large curvature, and as a result the lanes went outside the region of interest we chose for perspective transform. 

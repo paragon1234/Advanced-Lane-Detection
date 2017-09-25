@@ -59,8 +59,11 @@ I applied the distortion correction to one of the test images using the `cv2.und
 I used a combination of color and gradient thresholds to generate a binary image. I used a 2 way approach, where I first applied perspective transform and then masking (perspective transform at lines 236 through 240, thresholding steps at lines 242 through 245 in AdvancedLaneDetection.py). 
 
 For perspective transform, I chose to hardcode the source and destination points in the following manner:
+
     src = np.float32([[(250, 690), (1060, 690), (684, 450), (595, 450)]])     # define source points
+    
     dst = np.float32([[(350, 690), (950, 690), (950, 0), (350, 0)]])     # define dst points
+    
 I verified that my perspective transform was working as expected by drawing the `src` and `dst` points onto a test image and its warped counterpart to verify that the lines appear parallel in the warped image.
 
 For masking I used combination of sobel and color masks
@@ -125,7 +128,7 @@ Here's a [link to my video result](./project_video_output.mp4)
 To make the lines on video more robust, I have used values across the frames viz. left_center, right_center, and average distance between them. 
 1) If the distance between left_center and right_center of the first level of the frame is greater (by atleast some threshold) than the corresponding distance of the previous frame, then we correct the left_center and/or right_center so that it is close to the corresponding value in the previous frame (line 66-75 of tracker.py).
 2) If for a particular level and lane, the lane-pixels are not identified (due to missing markings), then it is adjusted as a function of average distance between lane and the position of the other lane (line 103-106 of tracker.py). This case fixes the issue of missing lane on one side as in the case of discrete lane markings
-3) If for a particular level, the distance between left and right lanes is different from the averge distance by a threshold, and the lane position is drifted by more than a threshold of the previous frame, then we apply correction to it (line 110-115 in tracker.py). This case fixes the issue of missing lane on one side and instead some noise is detected (like tyres of car in next lane)
+3) If for a particular level, the distance between left and right lanes is different from the averge distance by a threshold, and the lane position is drifted by more than a threshold of the previous frame, then we apply correction to it (line 110-115 in tracker.py). This case fixes the issue of missing lane on one side and instead some noise is detected (like tyres of car in adjacent lane)
 
 ---
 
